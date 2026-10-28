@@ -418,6 +418,8 @@ a { color: inherit; text-decoration: none; }
 @keyframes teaserIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 .teaser-close { background: none; border: 0; color: var(--text-dim); font-size: 18px; cursor: pointer; line-height: 1; }
 
+.chat-window[hidden] { display: none !important; }
+
 .chat-window {
   position: fixed; bottom: 26px; right: 26px; z-index: 210;
   width: 380px; max-width: calc(100vw - 32px); height: 560px; max-height: calc(100vh - 60px);
