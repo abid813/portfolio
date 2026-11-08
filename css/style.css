@@ -297,6 +297,40 @@ a { color: inherit; text-decoration: none; }
 .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); margin-right: 6px; }
 .legend-dot.pro { background: var(--accent); border-color: var(--accent); }
 
+/* ─── Beyond Code (Soft + Hard Skills) ─── */
+.beyond-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 36px;
+}
+.beyond-col {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px;
+}
+.beyond-heading {
+  font-family: var(--font-head); font-size: 22px; font-weight: 700;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 24px;
+  padding-bottom: 16px; border-bottom: 1px solid var(--border);
+}
+.beyond-icon { font-size: 28px; }
+.beyond-cards { display: flex; flex-direction: column; gap: 16px; }
+.beyond-card {
+  padding: 22px; border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.beyond-card:hover { transform: translateY(-3px); }
+.beyond-card.soft { background: rgba(16,185,129,.04); }
+.beyond-card.soft:hover { border-color: rgba(16,185,129,.45); box-shadow: 0 8px 24px rgba(16,185,129,.15); }
+.beyond-card.hard { background: rgba(56,189,248,.04); }
+.beyond-card.hard:hover { border-color: rgba(56,189,248,.45); box-shadow: 0 8px 24px rgba(56,189,248,.15); }
+.beyond-emoji { font-size: 32px; line-height: 1; }
+.beyond-card h4 { font-family: var(--font-head); font-size: 17px; font-weight: 700; }
+.beyond-card p { color: var(--text-dim); font-size: 14px; line-height: 1.6; }
+.beyond-hint {
+  text-align: center; margin-top: 36px; color: var(--text-dim); font-size: 14px;
+}
+.beyond-hint a { color: var(--accent-2); font-weight: 600; }
+
 /* ─── Timeline ─── */
 .timeline { position: relative; max-width: 780px; margin: 0 auto; padding-left: 34px; }
 .timeline::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--accent), transparent); }
@@ -342,6 +376,12 @@ a { color: inherit; text-decoration: none; }
 .thumb-3 { background: linear-gradient(135deg, #713f12, #0f172a); }
 .project-emoji { filter: drop-shadow(0 8px 20px rgba(0,0,0,.4)); transition: transform .4s; }
 .project-card:hover .project-emoji { transform: scale(1.18) rotate(-6deg); }
+.project-thumb-image { background: #0f172a; }
+.project-thumb-image img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  transition: transform .4s;
+}
+.project-card:hover .project-thumb-image img { transform: scale(1.04); }
 .project-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
 .project-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
 .project-top h3 { font-family: var(--font-head); font-size: 19px; line-height: 1.3; }
@@ -356,6 +396,12 @@ a { color: inherit; text-decoration: none; }
   background: rgba(16,185,129,.08); color: var(--accent-2); border: 1px solid rgba(16,185,129,.2);
 }
 .project-note { font-size: 12.5px; color: var(--text-dim); }
+.project-live-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--accent-2); font-size: 13px; font-weight: 700;
+  transition: color .2s, gap .2s;
+}
+.project-live-link:hover { color: var(--gold); gap: 10px; }
 
 /* ─── Education ─── */
 .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -491,6 +537,7 @@ a { color: inherit; text-decoration: none; }
   .projects-grid, .edu-grid, .contact-grid { grid-template-columns: 1fr 1fr; }
   .bento { grid-template-columns: 1fr 1fr; }
   .bento-large { grid-column: span 2; }
+  .beyond-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .nav-links {
