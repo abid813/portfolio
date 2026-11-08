@@ -385,6 +385,12 @@ a { color: inherit; text-decoration: none; }
 .thumb-3 { background: linear-gradient(135deg, #713f12, #0f172a); }
 .project-emoji { filter: drop-shadow(0 8px 20px rgba(0,0,0,.4)); transition: transform .4s; }
 .project-card:hover .project-emoji { transform: scale(1.18) rotate(-6deg); }
+.project-thumb-image { background: #0f172a; }
+.project-thumb-image img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  transition: transform .4s;
+}
+.project-card:hover .project-thumb-image img { transform: scale(1.04); }
 .project-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
 .project-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
 .project-top h3 { font-family: var(--font-head); font-size: 19px; line-height: 1.3; }
@@ -399,6 +405,12 @@ a { color: inherit; text-decoration: none; }
   background: rgba(16,185,129,.08); color: var(--accent-2); border: 1px solid rgba(16,185,129,.2);
 }
 .project-note { font-size: 12.5px; color: var(--text-dim); }
+.project-live-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--accent-2); font-size: 13px; font-weight: 700;
+  transition: color .2s, gap .2s;
+}
+.project-live-link:hover { color: var(--gold); gap: 10px; }
 
 /* ─── Education ─── */
 .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -559,6 +571,18 @@ a { color: inherit; text-decoration: none; }
   .projects-grid, .edu-grid, .contact-grid, .bento { grid-template-columns: 1fr; }
   .bento-large { grid-column: span 1; }
   .section { padding: 80px 20px; }
+  .section-head { margin-bottom: 38px; }
+  .section-title { font-size: clamp(28px, 8vw, 36px); line-height: 1.18; }
+  .section-title .grad-text { display: inline; }
+  .bento { gap: 14px; }
+  .bento-card { padding: 22px 20px; min-width: 0; }
+  .bento-large { grid-row: span 1; }
+  .bento-large h3 { font-size: 20px; line-height: 1.35; }
+  .bento-large p { font-size: 14px; line-height: 1.75; }
+  .bento-chips { gap: 8px; }
+  .chip { max-width: 100%; text-align: center; }
+  .clock-time { font-size: clamp(28px, 9vw, 34px); }
+  .bento-list li { line-height: 1.55; overflow-wrap: anywhere; }
 
   /* Hero mobile fixes */
   .hero { padding: 80px 14px 40px; min-height: auto; }
