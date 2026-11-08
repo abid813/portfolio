@@ -74,6 +74,12 @@ a { color: inherit; text-decoration: none; }
   max-width: 1180px; margin: 0 auto; padding: 14px 24px;
   display: flex; align-items: center; justify-content: space-between; gap: 20px;
 }
+@media (max-width: 640px) {
+  .nav-inner { padding: 10px 14px; gap: 10px; }
+  .nav-logo { font-size: 16px; }
+  .nav-actions { gap: 8px; }
+  .nav-actions .btn-sm { padding: 7px 12px; font-size: 12px; }
+}
 .nav-logo { font-family: var(--font-mono); font-size: 19px; font-weight: 600; }
 .logo-bracket { color: var(--accent); }
 .logo-accent { color: var(--gold); }
@@ -108,6 +114,9 @@ a { color: inherit; text-decoration: none; }
   min-height: 100vh; position: relative;
   display: flex; flex-direction: column; justify-content: center;
   padding: 120px 24px 60px;
+}
+@media (max-width: 640px) {
+  .hero { padding: 90px 16px 50px; min-height: auto; }
 }
 .hero-grid-bg {
   position: absolute; inset: 0; pointer-events: none;
@@ -297,6 +306,40 @@ a { color: inherit; text-decoration: none; }
 .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); margin-right: 6px; }
 .legend-dot.pro { background: var(--accent); border-color: var(--accent); }
 
+/* ─── Beyond Code (Soft + Hard Skills) ─── */
+.beyond-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 36px;
+}
+.beyond-col {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px;
+}
+.beyond-heading {
+  font-family: var(--font-head); font-size: 22px; font-weight: 700;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 24px;
+  padding-bottom: 16px; border-bottom: 1px solid var(--border);
+}
+.beyond-icon { font-size: 28px; }
+.beyond-cards { display: flex; flex-direction: column; gap: 16px; }
+.beyond-card {
+  padding: 22px; border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.beyond-card:hover { transform: translateY(-3px); }
+.beyond-card.soft { background: rgba(16,185,129,.04); }
+.beyond-card.soft:hover { border-color: rgba(16,185,129,.45); box-shadow: 0 8px 24px rgba(16,185,129,.15); }
+.beyond-card.hard { background: rgba(56,189,248,.04); }
+.beyond-card.hard:hover { border-color: rgba(56,189,248,.45); box-shadow: 0 8px 24px rgba(56,189,248,.15); }
+.beyond-emoji { font-size: 32px; line-height: 1; }
+.beyond-card h4 { font-family: var(--font-head); font-size: 17px; font-weight: 700; }
+.beyond-card p { color: var(--text-dim); font-size: 14px; line-height: 1.6; }
+.beyond-hint {
+  text-align: center; margin-top: 36px; color: var(--text-dim); font-size: 14px;
+}
+.beyond-hint a { color: var(--accent-2); font-weight: 600; }
+
 /* ─── Timeline ─── */
 .timeline { position: relative; max-width: 780px; margin: 0 auto; padding-left: 34px; }
 .timeline::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--accent), transparent); }
@@ -483,7 +526,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ─── Responsive ─── */
 @media (max-width: 980px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 44px; text-align: center; }
+  .hero-inner { grid-template-columns: 1fr; gap: 36px; text-align: center; }
   .hero-cta, .hero-socials { justify-content: center; }
   .hero-tagline { margin-left: auto; margin-right: auto; }
   .skills-layout { grid-template-columns: 1fr; gap: 50px; }
@@ -491,7 +534,16 @@ a { color: inherit; text-decoration: none; }
   .projects-grid, .edu-grid, .contact-grid { grid-template-columns: 1fr 1fr; }
   .bento { grid-template-columns: 1fr 1fr; }
   .bento-large { grid-column: span 2; }
+  .beyond-grid { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 768px) {
+  .hero-inner { gap: 28px; }
+  .hero-right { gap: 18px; }
+  .code-window { max-width: 100%; }
+  .hero-photo-ring { width: 110px; height: 110px; }
+}
+
 @media (max-width: 640px) {
   .nav-links {
     position: fixed; top: 62px; left: 0; right: 0;
@@ -508,27 +560,50 @@ a { color: inherit; text-decoration: none; }
   .bento-large { grid-column: span 1; }
   .section { padding: 80px 20px; }
 
-  /* Orbit resized for small screens (no transform-scale overflow) */
-  .orbit-wrap { width: 300px; height: 300px; transform: none; }
-  .orbit-1 { width: 130px; height: 130px; }
-  .orbit-2 { width: 210px; height: 210px; }
-  .orbit-3 { width: 290px; height: 290px; }
-  .orbit-core { width: 84px; height: 84px; }
-  .orbit-item { width: 38px; height: 38px; margin: -19px 0 0 -19px; font-size: 17px; }
-  .orbit-1 .orbit-item { --r: 65px; }
-  .orbit-2 .orbit-item { --r: 105px; }
-  .orbit-3 .orbit-item { --r: 145px; }
+  /* Hero mobile fixes */
+  .hero { padding: 80px 14px 40px; min-height: auto; }
+  .hero-inner { gap: 24px; }
+  .hero-badge { font-size: 11px; padding: 7px 13px; margin-bottom: 18px; }
+  .hero-title { font-size: clamp(28px, 8vw, 40px); line-height: 1.15; }
+  .hero-subtitle { font-size: 14px; margin-top: 10px; }
+  .hero-tagline { font-size: 14.5px; margin-top: 14px; max-width: 100%; }
+  .hero-cta { gap: 10px; margin-top: 24px; flex-direction: column; width: 100%; }
+  .hero-cta .btn { width: 100%; justify-content: center; padding: 13px 18px; font-size: 14px; }
+  .hero-socials { gap: 10px; margin-top: 24px; }
+  .hero-socials a { width: 40px; height: 40px; }
 
-  /* Hero code window readable on phones */
-  .code-body { font-size: 12px; padding: 16px 18px; }
-  .hero { padding-top: 100px; }
-  .hero-cta .btn { flex: 1 1 auto; justify-content: center; }
+  /* Code window: smaller font, tighter padding */
+  .hero-right { gap: 16px; width: 100%; }
+  .code-window { max-width: 100%; }
+  .code-titlebar { padding: 10px 12px; }
+  .code-filename { font-size: 10px; }
+  .code-body { font-size: 11px; padding: 14px 12px; line-height: 1.7; }
+  .hero-photo-ring { width: 90px; height: 90px; }
+
+  /* Orbit resized for small screens (no transform-scale overflow) */
+  .orbit-wrap { width: 280px; height: 280px; transform: none; }
+  .orbit-1 { width: 120px; height: 120px; }
+  .orbit-2 { width: 200px; height: 200px; }
+  .orbit-3 { width: 275px; height: 275px; }
+  .orbit-core { width: 76px; height: 76px; }
+  .orbit-item { width: 34px; height: 34px; margin: -17px 0 0 -17px; font-size: 15px; }
+  .orbit-1 .orbit-item { --r: 60px; }
+  .orbit-2 .orbit-item { --r: 100px; }
+  .orbit-3 .orbit-item { --r: 137px; }
 
   /* Chat window: near full-width, always closable */
   .chat-window {
-    left: 12px; right: 12px; width: auto;
-    bottom: 12px; height: min(74dvh, 560px);
+    left: 8px; right: 8px; width: auto;
+    bottom: 8px; height: min(74dvh, 560px);
   }
-  .chat-launcher { right: 16px; bottom: 16px; }
-  .chat-teaser { max-width: 240px; font-size: 12.5px; }
+  .chat-launcher { right: 14px; bottom: 14px; }
+  .chat-teaser { max-width: 220px; font-size: 12px; }
+}
+
+@media (max-width: 380px) {
+  .hero-title { font-size: 24px; }
+  .hero-badge { font-size: 10px; }
+  .code-body { font-size: 10px; padding: 12px 10px; }
+  .hero-cta .btn { font-size: 13px; padding: 11px 14px; }
+  .hero-socials a { width: 36px; height: 36px; }
 }

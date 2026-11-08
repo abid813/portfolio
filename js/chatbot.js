@@ -22,6 +22,8 @@ PROFILE:
 - Databases: MongoDB, PostgreSQL, Supabase
 - Design: Figma (real client experience), landing pages
 - Automation: AI automation, Telegram bots, email automation, API integration
+- Computer skills: Computer Basics, MS Word, MS Excel, MS PowerPoint, typing, Windows OS, file management
+- Soft skills: punctual with 5× daily Salat (prayer), active tree plantation enthusiast, regular blood donor
 - Projects:
   1. Nightly News Digest Bot — every night ~10 PM auto-collects top world news by category (economy, conflict, finance) and delivers a digest via Telegram
   2. VORMON 360 — complete Figma UI/UX design of a mobile app for a client (team project)
@@ -75,6 +77,12 @@ const KB = [
     a: "You can download Abid's resume using the Resume button in the top navigation bar. 📄" },
   { k: ["bangla", "বাংলা", "bangladesh"],
     a: "Yes, Abid is proudly Bangladeshi 🇧🇩 — based in Khulna, born in Narail. Feel free to ask me anything in Bangla or English!" },
+  { k: ["soft skill", "soft", "salat", "prayer", "নামাজ", "সালাত", "blood", "রক্ত", "tree", "গাছ", "plantation", "human"],
+    a: "Beyond coding, Abid has strong soft skills:\n\n🕌 5× Daily Salat — disciplined with all five prayers, every single day.\n🌱 Tree Plantation — actively plants trees and encourages others to do the same.\n🩸 Active Blood Donor — regularly donates blood because saving lives matters.\n\nFaith, nature and giving back — that's who he is beyond the screen. 💚" },
+  { k: ["hard skill", "computer basic", "ms office", "excel", "word", "powerpoint", "microsoft", "typing"],
+    a: "Besides web development, Abid is proficient in:\n\n💻 Computer Basics — solid foundation in computer operation, file management & troubleshooting.\n📊 Microsoft Office — MS Word, Excel & PowerPoint for documents, spreadsheets & presentations.\n⌨️ Typing & OS — fast typing, Windows fluency, email & everyday software tools.\n\nThese skills make him efficient in any professional environment, not just coding! 💼" },
+  { k: ["hobby", "hobbies", "free time", "interest", "প্রিয়", "শখ"],
+    a: "Abid's interests beyond coding:\n🕌 Praying 5× daily Salat (his top priority)\n🌱 Planting trees & caring for nature\n🩸 Donating blood regularly\nHe believes a developer should build a better world, not just better websites! 🌍" },
 ];
 
 const FALLBACK = "Hmm, I'm not sure about that one 🤔 — but I know everything about Abid! Try asking:\n• What's your name?\n• When was Abid born?\n• What are his skills / projects?\n• How much does he charge?\n• How can I contact him?\n\nOr WhatsApp Abid directly: +880 1793-582174 😊";
