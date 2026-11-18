@@ -3,10 +3,10 @@
 // ── Typewriter ──
 (function typewriter() {
   const roles = [
-    "Full-Stack Web Developer",
-    "AI Automation Specialist",
-    "Figma → Code Craftsman",
-    "Upwork Freelancer",
+    "Web Designer & Frontend Developer",
+    "AI Workflow & Automation Specialist",
+    "Digital Operations Executive",
+    "Open to Remote & On-Site Roles",
   ];
   const el = document.getElementById("typewriter");
   if (!el) return;
@@ -38,6 +38,12 @@
 // ── Reveal on scroll ──
 (function reveal() {
   const items = document.querySelectorAll(".reveal");
+  // If the browser lacks IntersectionObserver, show everything immediately
+  // instead of leaving all sections invisible.
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((i) => i.classList.add("visible"));
+    return;
+  }
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
@@ -47,6 +53,14 @@
 // ── Animated stat counters ──
 (function counters() {
   const nums = document.querySelectorAll(".stat-num");
+  const finalValue = (el) =>
+    parseFloat(el.dataset.count).toFixed(String(el.dataset.count).includes(".") ? 1 : 0) +
+    (el.dataset.suffix || "");
+
+  // Safety net: never leave a "0" on screen, even if the observer never fires.
+  nums.forEach((n) => { n.textContent = finalValue(n); });
+  if (!("IntersectionObserver" in window)) return;
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -61,9 +75,10 @@
         const eased = 1 - Math.pow(1 - p, 3);
         el.textContent = (target * eased).toFixed(decimals) + suffix;
         if (p < 1) requestAnimationFrame(step);
+        else el.textContent = finalValue(el);
       })(start);
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.15 });
   nums.forEach((n) => io.observe(n));
 })();
 
